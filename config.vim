@@ -1,7 +1,21 @@
 syntax enable
 colorscheme nightfox
 set encoding=UTF-8
+filetype indent on
+set tabstop=4
+set shiftwidth=4
+set linebreak
+set ruler
+set mouse=a
+set spell
+set cursorline
+set hlsearch
+" Keybindings Start
 inoremap <silent> \\ <Esc>:Telescope<CR>
+nnoremap <silent> \\ <Esc>:Telescope<CR>
+inoremap <silent> <C-S> <Esc>:w<CR>
+nnoremap <silent> <C-S> :w<CR>
+" Keybindings END
 lua << END
 require('lualine').setup({
   options = {
