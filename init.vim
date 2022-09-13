@@ -10,6 +10,7 @@ set mouse=a
 set spell
 set cursorline
 set hlsearch
+luafile lua/init.lua
 " Keybindings Start
 inoremap <silent> \\ <Esc>:Telescope<CR>
 nnoremap <silent> \\ <Esc>:Telescope<CR>
