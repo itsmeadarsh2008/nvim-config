@@ -10,12 +10,16 @@ set mouse=a
 set spell
 set cursorline
 set hlsearch
-luafile lua/init.lua
+set number
+lua require("nvim-tree").setup()
+lua require('telescope').load_extension('projects')
 " Keybindings Start
 inoremap <silent> \\ <Esc>:Telescope<CR>
 nnoremap <silent> \\ <Esc>:Telescope<CR>
 inoremap <silent> <C-S> <Esc>:w<CR>
 nnoremap <silent> <C-S> :w<CR>
+inoremap <silent> <C-Y> <Esc>:redo<i><CR>
+inoremap <silent> <C-Z> <Esc>:undo<i><CR>
 " Keybindings END
 lua << END
 require('lualine').setup({
