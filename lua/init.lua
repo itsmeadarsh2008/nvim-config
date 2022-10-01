@@ -16,13 +16,13 @@ set.termguicolors = true
 return require("packer").startup(function(use)
 	use({ "ckipp01/stylua-nvim" })
 	use("glepnir/dashboard-nvim")
+	use("norcalli/nvim-colorizer.lua")
 	use("wbthomason/packer.nvim")
 	use("tpope/vim-fugitive")
 	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 	})
-	use("ap/vim-css-color")
 	use("kyazdani42/nvim-web-devicons")
 	use("907th/vim-auto-save")
 	use({
@@ -37,7 +37,9 @@ return require("packer").startup(function(use)
 	use("leafgarland/typescript-vim") -- TypeScript syntax
 	use("maxmellon/vim-jsx-pretty") -- JS and JSX syntax
 	use("jparise/vim-graphql")
+	use("tjdevries/colorbuddy.nvim")
 	use("LucHermitte/lh-cpp")
+	use({ "rktjmp/lush.nvim" })
 	use("dense-analysis/ale")
 	-- Lua
 	use({
@@ -63,7 +65,6 @@ return require("packer").startup(function(use)
 		end,
 	})
 	use("ryanoasis/vim-devicons")
-	use("tiagofumo/vim-nerdtree-syntax-highlight")
 	use("mattn/emmet-vim")
 	use("yuezk/vim-js")
 	use("ervandew/supertab")
@@ -78,7 +79,6 @@ return require("packer").startup(function(use)
 	use("jbgutierrez/vim-better-comments")
 	use("lewis6991/impatient.nvim")
 	use("dstein64/vim-startuptime")
-	    use { 'rafcamlet/nvim-luapad', requires = "antoinemadec/FixCursorHold.nvim" }
 	use({
 		"kyazdani42/nvim-tree.lua",
 		requires = {
@@ -103,5 +103,4 @@ return require("packer").startup(function(use)
 		end,
 	})
 end)
-vim.cmd('luafile ~/AppData/Local/nvim/lua/dash.lua')
 -- :TSInstall python json javascript typescript vim lua c cpp markdown html scss jsonc yaml toml

@@ -1,3 +1,4 @@
+luafile ~/AppData/Local/nvim/lua/init.lua
 syntax enable
 colorscheme nightfox
 set encoding=UTF-8
@@ -11,7 +12,10 @@ set spell
 set cursorline
 set hlsearch
 set number
+set noshowmode
+hi DashboardHeader guifg=#FF9B71
 lua require("nvim-tree").setup()
+lua require('colorizer').setup()
 lua require('telescope').load_extension('projects')
 " Keybindings Start
 inoremap <silent> \\ <Esc>:Telescope<CR>
@@ -64,4 +68,38 @@ require('lualine').setup({
   inactive_winbar = {},
   extensions = {}
 })
+local home = os.getenv('HOME')
+local db = require('dashboard')
+db.custom_center = {
+      {
+	icon = ' ',
+        desc = 'Recent Projects                  ',
+      	action ='Telescope projects'
+    },
+	{
+	icon = ' ',
+        desc = 'NeoVim Configuration                  ',
+      	action ='cd ~/AppData/Local/nvim | :Telescope fd'
+    },
+    {
+            icon = '  ',
+            desc = 'Change Colorscheme                  ',
+            action = 'Telescope colorscheme'
+    }
+}
+db.custom_header = {
+        '',
+            '   │                                     ',
+                '   │        ▄▄   ▄▄   ▄▄   ▄▄       │    ',
+                    '   ▌        ▒▒   ▒▒   ▒▒   ▒▒       ▌    ',
+                        '   ▌      ▄▀█▀█▀█▀█▀█▀█▀█▀█▀█▀▄     ▌    ',
+                            '   ▌    ▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄   ▋    ',
+                                '▀██████████████████████████████████████▄ ',
+                                    '  ▀███████████████████████████████████▀  ',
+                                        '     ▀██████████████████████████████▀    ',
+                                            '▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒',
+                                                '▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒',
+                                                    '▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒',
+                                                        '',
+                                                        }
 END
