@@ -15,6 +15,15 @@ set.termguicolors = true
 -- Plugins
 return require("packer").startup(function(use)
 	use({ "ckipp01/stylua-nvim" })
+    use "rafamadriz/friendly-snippets"
+	use({
+		"s1n7ax/nvim-terminal",
+		config = function()
+			vim.o.hidden = true
+			require("nvim-terminal").setup()
+		end,
+	})
+    use({"L3MON4D3/LuaSnip", tag = "v<CurrentMajor>.*"})
 	use("glepnir/dashboard-nvim")
 	use("norcalli/nvim-colorizer.lua")
 	use("wbthomason/packer.nvim")

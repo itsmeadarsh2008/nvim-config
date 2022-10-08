@@ -17,13 +17,14 @@ hi DashboardHeader guifg=#FF9B71
 lua require("nvim-tree").setup()
 lua require('colorizer').setup()
 lua require('telescope').load_extension('projects')
+lua require("luasnip.loaders.from_vscode").lazy_load()
 " Keybindings Start
-inoremap <silent> \\ <Esc>:Telescope<CR>
-nnoremap <silent> \\ <Esc>:Telescope<CR>
-inoremap <silent> <C-S> <Esc>:w<CR>
+inoremap <silent> \\ <CMD>:Telescope<CR>
+nnoremap <silent> \\ <CMD>:Telescope<CR>
+inoremap <silent> <C-S> <CMD>:w<CR>
 nnoremap <silent> <C-S> :w<CR>
-inoremap <silent> <C-Y> <Esc>:redo<i><CR>
-inoremap <silent> <C-Z> <Esc>:undo<i><CR>
+inoremap <silent> <C-Y> <CMD>:redo<i><CR>
+inoremap <silent> <C-Z> <CMD>:undo<i><CR>
 " Keybindings END
 lua << END
 require('lualine').setup({
