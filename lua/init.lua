@@ -15,7 +15,48 @@ set.termguicolors = true
 -- Plugins
 return require("packer").startup(function(use)
 	use({ "ckipp01/stylua-nvim" })
-    use "rafamadriz/friendly-snippets"
+	use({
+		"gelguy/wilder.nvim",
+	})
+	use("rcarriga/nvim-notify")
+	use({
+		"crusj/bookmarks.nvim",
+		branch = "main",
+		requires = { "kyazdani42/nvim-web-devicons" },
+	})
+	use("stevearc/dressing.nvim")
+	use({
+		"ziontee113/icon-picker.nvim",
+	})
+	use({
+		"folke/trouble.nvim",
+		requires = "kyazdani42/nvim-web-devicons",
+		config = function()
+			require("trouble").setup({})
+		end,
+	})
+	use("lukas-reineke/indent-blankline.nvim")
+	use({ "mrjones2014/legendary.nvim" })
+	use({ "ellisonleao/glow.nvim" })
+	use({
+		"catppuccin/nvim",
+		as = "catppuccin",
+		config = function()
+			vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
+			require("catppuccin").setup()
+			vim.api.nvim_command("colorscheme catppuccin")
+		end,
+	})
+	--use 'numirias/semshi'
+	use({
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
+		"neovim/nvim-lspconfig",
+	})
+	use("tjdevries/nlua.nvim")
+	use({ "rafcamlet/nvim-luapad", requires = "antoinemadec/FixCursorHold.nvim" })
+	use("rafamadriz/friendly-snippets")
+	use("preservim/nerdcommenter")
 	use({
 		"s1n7ax/nvim-terminal",
 		config = function()
@@ -23,15 +64,11 @@ return require("packer").startup(function(use)
 			require("nvim-terminal").setup()
 		end,
 	})
-    use({"L3MON4D3/LuaSnip", tag = "v<CurrentMajor>.*"})
+	use({ "L3MON4D3/LuaSnip", tag = "v<CurrentMajor>.*" })
 	use("glepnir/dashboard-nvim")
 	use("norcalli/nvim-colorizer.lua")
 	use("wbthomason/packer.nvim")
 	use("tpope/vim-fugitive")
-	use({
-		"nvim-lualine/lualine.nvim",
-		requires = { "kyazdani42/nvim-web-devicons", opt = true },
-	})
 	use("kyazdani42/nvim-web-devicons")
 	use("907th/vim-auto-save")
 	use({
@@ -103,12 +140,6 @@ return require("packer").startup(function(use)
 		module = "persistence",
 		config = function()
 			require("persistence").setup()
-		end,
-	})
-	use({
-		"numToStr/Comment.nvim",
-		config = function()
-			require("Comment").setup()
 		end,
 	})
 end)
